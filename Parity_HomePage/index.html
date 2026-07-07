@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Pairity</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+    }
+    .elastic-entrance {
+        animation: elasticSlide 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes elasticSlide {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .ai-pulse {
+        animation: pulseOpacity 4s ease-in-out infinite;
+    }
+    @keyframes pulseOpacity {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; }
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container": "#efeeea",
+                  "tertiary-fixed": "#c2ecdc",
+                  "outline-variant": "#c5c6cd",
+                  "background": "#fbf9f5",
+                  "on-tertiary-fixed-variant": "#284e42",
+                  "error": "#ba1a1a",
+                  "surface-container-highest": "#e4e2de",
+                  "secondary-container": "#ffb196",
+                  "surface-bright": "#fbf9f5",
+                  "inverse-primary": "#bcc7de",
+                  "secondary-fixed-dim": "#ffb59c",
+                  "on-surface": "#1b1c1a",
+                  "on-secondary-fixed": "#370e01",
+                  "inverse-surface": "#30312e",
+                  "on-error-container": "#93000a",
+                  "on-secondary-container": "#7a412d",
+                  "on-tertiary-fixed": "#002018",
+                  "tertiary-container": "#052f25",
+                  "on-secondary": "#ffffff",
+                  "primary-fixed-dim": "#bcc7de",
+                  "surface-container-high": "#eae8e4",
+                  "on-error": "#ffffff",
+                  "on-primary-fixed-variant": "#3c475a",
+                  "on-primary-container": "#8590a6",
+                  "primary-fixed": "#d8e3fb",
+                  "on-tertiary-container": "#71988a",
+                  "surface-variant": "#e4e2de",
+                  "surface-dim": "#dbdad6",
+                  "on-tertiary": "#ffffff",
+                  "on-primary-fixed": "#111c2d",
+                  "surface-container-lowest": "#ffffff",
+                  "secondary": "#8a4f39",
+                  "tertiary-fixed-dim": "#a6cfc0",
+                  "on-secondary-fixed-variant": "#6e3824",
+                  "on-surface-variant": "#45474c",
+                  "error-container": "#ffdad6",
+                  "primary": "#091426",
+                  "secondary-fixed": "#ffdbcf",
+                  "tertiary": "#001812",
+                  "surface-tint": "#545f73",
+                  "surface-container-low": "#f5f3ef",
+                  "primary-container": "#1e293b",
+                  "on-primary": "#ffffff",
+                  "on-background": "#1b1c1a",
+                  "surface": "#fbf9f5",
+                  "inverse-on-surface": "#f2f0ec",
+                  "outline": "#75777d"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "md": "24px",
+                  "lg": "40px",
+                  "gutter": "16px",
+                  "unit": "4px",
+                  "safe-margin": "24px",
+                  "xs": "8px",
+                  "sm": "16px",
+                  "xl": "64px"
+          },
+          "fontFamily": {
+                  "label-sm": ["Inter"],
+                  "body-md": ["Inter"],
+                  "label-md": ["Inter"],
+                  "headline-lg": ["Inter"],
+                  "body-lg": ["Inter"],
+                  "headline-md": ["Inter"],
+                  "headline-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+                  "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                  "headline-lg": ["32px", {"lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                  "headline-lg-mobile": ["28px", {"lineHeight": "1.4", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+  <!-- Top Navigation -->
+  <header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm dark:shadow-none border-none">
+    <nav class="flex justify-between items-center max-w-[1200px] mx-auto w-full px-safe-margin h-16">
+      <div class="brand-logo-container flex items-center gap-xs cursor-pointer active:scale-95 transition-all">
+        <!-- Logo Injected dynamically -->
+      </div>
+      <div class="hidden md:flex items-center gap-lg" id="desktop-nav">
+        <!-- Nav links injected dynamically -->
+      </div>
+      <button id="menu-toggle" class="md:hidden material-symbols-outlined text-primary">menu</button>
+    </nav>
+    <!-- Mobile menu panel -->
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-background border-b border-outline-variant/20 p-safe-margin flex flex-col gap-sm md:hidden shadow-lg">
+      <!-- Mobile links injected dynamically -->
+    </div>
+  </header>
+  
+  <main class="pt-32">
+    <!-- Hero Section -->
+    <section class="max-w-[600px] mx-auto px-safe-margin text-center mb-xl" id="hero-section">
+      <!-- Hero injected dynamically -->
+    </section>
+
+    <!-- Dynamic Visualization (Mock AI Layer) -->
+    <section class="max-w-[1000px] mx-auto px-safe-margin mb-xl" id="dynamic-visualization-section">
+      <!-- Injected dynamically -->
+    </section>
+
+    <!-- Bento Grid: The Process -->
+    <section class="max-w-[1200px] mx-auto px-safe-margin py-xl">
+      <h2 class="font-headline-md text-headline-md text-center text-primary mb-xl" id="journey-title"></h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-md" id="journey-steps">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+    <!-- Domains of Evaluation -->
+    <section class="max-w-[800px] mx-auto px-safe-margin py-xl text-center">
+      <h2 class="font-headline-md text-headline-md text-primary mb-md" id="domains-title"></h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-lg" id="domains-subtitle"></p>
+      <div class="flex flex-wrap justify-center gap-sm" id="domains-list">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+    <!-- Visual Proof / Emotional Section -->
+    <section class="max-w-[1000px] mx-auto px-safe-margin py-xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-xl" id="privacy-section">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="max-w-[600px] mx-auto px-safe-margin py-xl text-center" id="cta-section">
+      <!-- Injected dynamically -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface dark:bg-surface w-full py-xl border-t border-outline-variant/20 mt-xl">
+    <div class="max-w-[600px] mx-auto px-safe-margin text-center" id="footer-section">
+      <!-- Injected dynamically -->
+    </div>
+  </footer>
+
+  <script src="site.config.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

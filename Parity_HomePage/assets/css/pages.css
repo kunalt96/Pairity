@@ -1,0 +1,108 @@
+/* Hero Section */
+.hero {
+  padding: 8rem 2rem 6rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+/* Sections */
+.section {
+  padding: 6rem 2rem;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Design System Color Showcase */
+.colors-showcase {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.color-swatch {
+  width: 120px;
+  text-align: center;
+}
+
+.color-block {
+  height: 80px;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.color-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.color-hex {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Contact / Call-to-action Section */
+.cta-section {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  text-align: center;
+  padding: 6rem 2rem;
+  border-radius: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-section p {
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.1rem;
+}
+
+.cta-section .btn {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.cta-section .btn:hover {
+  background-color: var(--surface-color);
+  color: var(--primary-color);
+}
