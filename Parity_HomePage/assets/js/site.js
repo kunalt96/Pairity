@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!config) return;
 
   // Detect if current page is inside the "pages" subfolder
-  const isSubpage = window.location.pathname.includes('/pages/') || 
-                    document.body.getAttribute('data-page-type') === 'subpage';
+  const isSubpage = window.location.pathname.includes('/pages/') ||
+    document.body.getAttribute('data-page-type') === 'subpage';
   const homePath = isSubpage ? "../index.html" : "index.html";
   const imagePath = isSubpage ? "../assets/images/image.png" : "assets/images/image.png";
 
@@ -391,23 +391,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </table>
         </div>
       </section>
-
-      <!-- Branding / Hero Background -->
-      <section class="relative w-full h-[450px] rounded-3xl overflow-hidden mb-8 flex items-center justify-center text-center px-6 group">
-        <div class="absolute inset-0 z-0">
-          <img alt="Minimalist landscape" class="w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-105" src="${pricingData.brandingSection.imageUrl}"/>
-          <div class="absolute inset-0 bg-[#091426]/30 backdrop-blur-[1.5px]"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#fbf9f5] via-transparent to-transparent"></div>
-        </div>
-        <div class="relative z-10 max-w-xl">
-          <div class="inline-flex items-center gap-2 mb-3 opacity-80">
-            <span class="material-symbols-outlined text-white text-sm">${pricingData.brandingSection.icon}</span>
-            <span class="text-xs font-semibold tracking-widest uppercase text-white">${pricingData.brandingSection.tag}</span>
-          </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">${pricingData.brandingSection.title}</h2>
-          <p class="text-sm md:text-base text-white/90">${pricingData.brandingSection.description}</p>
-        </div>
-      </section>
     `;
   }
 
@@ -449,55 +432,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const supportContainer = document.getElementById("support-page-container");
   if (supportContainer) {
     const supportData = config.pages.support;
+    supportContainer.className = "pt-32 pb-16 max-w-[600px] mx-auto px-6";
     supportContainer.innerHTML = `
       <!-- Hero Section -->
-      <section class="py-12 text-center">
-        <h1 class="text-4xl font-extrabold text-primary mb-6">${supportData.title}</h1>
-        <div class="relative group max-w-xl mx-auto mb-8">
-          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-          <input class="w-full h-14 pl-12 pr-4 bg-white border border-outline-variant/30 rounded-xl focus:ring-1 focus:ring-secondary focus:border-secondary transition-all outline-none text-body-md shadow-sm" placeholder="${supportData.searchPlaceholder}" type="text"/>
-        </div>
-      </section>
-
-      <!-- Category Grid -->
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 text-left">
-        ${supportData.categories.map(cat => `
-          <div class="zen-card p-6 bg-white border border-slate-100 rounded-2xl cursor-pointer hover:shadow-md transition-all">
-            <div class="w-12 h-12 rounded-full ${cat.colorClass} flex items-center justify-center mb-4">
-              <span class="material-symbols-outlined text-2xl font-semibold">${cat.icon}</span>
-            </div>
-            <h3 class="text-xl font-bold text-primary mb-2">${cat.title}</h3>
-            <p class="text-on-surface-variant text-sm">${cat.description}</p>
-          </div>
-        `).join("")}
-      </section>
-
-      <!-- Featured Articles -->
-      <section class="mb-16 text-left">
-        <h2 class="text-2xl font-bold text-primary mb-6">Featured Articles</h2>
-        <div class="space-y-4">
-          ${supportData.featuredArticles.map(art => `
-            <a class="flex items-center justify-between p-5 bg-white rounded-2xl border border-slate-100 hover:border-secondary/20 transition-all group shadow-sm" href="#">
-              <span class="text-base font-medium text-on-surface group-hover:text-secondary transition-colors">${art}</span>
-              <span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </a>
-          `).join("")}
-        </div>
+      <section class="mb-12 text-center elastic-entrance">
+        <h1 class="text-4xl font-bold text-slate-900 mb-4">${supportData.title}</h1>
+        <p class="text-lg text-slate-500 max-w-[500px] mx-auto leading-relaxed">
+          ${supportData.subtitle}
+        </p>
       </section>
 
       <!-- Contact Section -->
-      <section class="mb-16">
-        <div class="relative overflow-hidden p-10 bg-[#091426] rounded-3xl text-center shadow-lg">
-          <h2 class="text-3xl font-bold text-white mb-4">${supportData.contact.title}</h2>
-          <p class="text-slate-300 text-sm max-w-sm mx-auto mb-8">${supportData.contact.description}</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button class="w-full sm:w-auto px-8 h-12 bg-[#8a4f39] text-white rounded-full font-semibold text-sm hover:brightness-105 active:scale-95 transition-all">
-              ${supportData.contact.primaryCta}
-            </button>
-            <button class="w-full sm:w-auto px-8 h-12 bg-transparent border border-slate-500 text-white rounded-full font-semibold text-sm hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-2">
-              <span class="material-symbols-outlined text-base">${supportData.contact.secondaryIcon}</span>
-              ${supportData.contact.secondaryCta}
-            </button>
+      <section class="mb-12">
+        <div class="flex flex-col gap-4 items-center py-6">
+          <div class="w-full max-w-sm space-y-4">
+            ${supportData.actions.map(action => {
+              if (action.isSpecial) {
+                return `
+                  <a href="${action.href}" class="w-full p-5 bg-[#ffdbcf] border border-[#8a4f39] rounded-2xl flex items-center justify-between group hover:brightness-105 transition-all active:scale-95 block">
+                    <div class="flex items-center gap-4">
+                      <span class="material-symbols-outlined text-[#8a4f39] text-2xl font-semibold">${action.icon}</span>
+                      <div class="flex flex-col items-start">
+                        <span class="text-base font-bold text-[#370e01]">${action.title}</span>
+                        ${action.description ? `<span class="text-xs text-slate-500 mt-0.5">${action.description}</span>` : ''}
+                      </div>
+                    </div>
+                    <span class="material-symbols-outlined text-[#370e01] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                  </a>
+                `;
+              } else {
+                return `
+                  <a href="${action.href}" target="_blank" rel="noopener noreferrer" class="w-full p-5 bg-white border border-slate-100 rounded-2xl flex items-center justify-between group hover:border-[#8a4f39]/20 transition-all active:scale-95 shadow-sm block">
+                    <div class="flex items-center gap-4">
+                      <span class="material-symbols-outlined text-[#8a4f39] text-2xl font-semibold">${action.icon}</span>
+                      <div class="flex flex-col items-start">
+                        <span class="text-base font-semibold text-slate-800">${action.title}</span>
+                        <span class="text-xs text-slate-400 mt-0.5">${action.description}</span>
+                      </div>
+                    </div>
+                    <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                  </a>
+                `;
+              }
+            }).join("")}
           </div>
         </div>
       </section>

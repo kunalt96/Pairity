@@ -355,29 +355,31 @@ const siteConfig = {
       }
     },
     support: {
-      title: "How can we help?",
-      subtitle: "Find guidance, check FAQs, or reach out to our team of specialists.",
-      searchPlaceholder: "Search for articles, guides...",
-      categories: [
-        { title: "Getting Started", description: "Basic setup and onboarding for your journey.", icon: "rocket_launch", colorClass: "bg-orange-50 text-[#8a4f39]" },
-        { title: "The AI Interview", description: "How our depth-driven process actually works.", icon: "psychology", colorClass: "bg-emerald-50 text-emerald-700" },
-        { title: "Privacy & Security", description: "Data encryption and our signature Zen Mode.", icon: "shield_lock", colorClass: "bg-slate-50 text-slate-900" },
-        { title: "Billing & Premium", description: "Managing your Sanctuary subscription and tier.", icon: "subscriptions", colorClass: "bg-indigo-50 text-indigo-700" },
-        { title: "Reading Your Report", description: "Understanding your emotional alignment scores.", icon: "bar_chart_4_bars", colorClass: "bg-orange-50 text-[#8a4f39]" },
-        { title: "Account Settings", description: "Personal profile and secure data management.", icon: "settings_account_box", colorClass: "bg-slate-50 text-slate-900" }
-      ],
-      featuredArticles: [
-        "Is my data really private?",
-        "How to invite your partner",
-        "Understanding the 24-hour reflection period"
-      ],
-      contact: {
-        title: "Still need help?",
-        description: "Our specialists and AI concierge are available 24/7 to support your relationship growth.",
-        primaryCta: "Email us",
-        secondaryCta: "Chat with AI Assistant",
-        secondaryIcon: "smart_toy"
-      }
+      title: "Contact & Support",
+      subtitle: "Find direct lines to our specialists and emergency helpline.",
+      actions: [
+        {
+          title: "WhatsApp Us",
+          description: "Available Mon-Fri, 11am - 6pm IST",
+          icon: "chat",
+          href: "https://wa.me/919176047311",
+          isSpecial: false
+        },
+        {
+          title: "Email Us",
+          description: "Typical response within 24 hours",
+          icon: "mail",
+          href: "mailto:support@pairity.com",
+          isSpecial: false
+        },
+        {
+          title: "SOS Helpline",
+          description: "Click to call directly from your device",
+          icon: "emergency",
+          href: "tel:+919176047311",
+          isSpecial: true
+        }
+      ]
     },
     privacy: {
       title: "Privacy Policy",
